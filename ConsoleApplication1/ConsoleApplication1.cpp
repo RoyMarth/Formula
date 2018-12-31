@@ -15,17 +15,18 @@ int main()
 	double e;
 	int win;
 	double k;
-	cout << "Please enter first elo\n";
-	cin >> felo;
-	cout << "please enter opp elo\n";
-	cin >> oelo;
-	cout << "please enter win or loss 1 or 0\n";
-	cin >> win;
-	e = expected(felo, oelo);
-	cout << e << endl;
-	k = elocalc(felo, e, win);
-	cout << k <<endl;
-	
+	do {
+		cout << "Please enter first elo\n";
+		cin >> felo;
+		cout << "please enter opp elo\n";
+		cin >> oelo;
+		cout << "please enter win or loss 1 or 0\n";
+		cin >> win;
+		e = expected(felo, oelo);
+		cout << e << endl;
+		k = elocalc(felo, e, win);
+		cout << k << endl;
+	} while (felo != 0);
 	
 	
 	
@@ -51,7 +52,7 @@ double elocalc(double x, double z, int y)
 {
 	double newelo;
 	newelo = y - z;
-	newelo = 32 * newelo;
+	newelo = 40 * newelo;
 	newelo = x + newelo;
 	return newelo;
 }
