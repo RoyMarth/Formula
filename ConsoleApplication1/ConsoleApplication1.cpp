@@ -8,6 +8,7 @@
 using namespace std;
 double expected(double x, double y);
 double elocalc(double x, double z, int y);
+double otherelo(double x, double z, int y);
 int main()
 {
 	double felo;
@@ -15,6 +16,7 @@ int main()
 	double e;
 	int win;
 	double k;
+	double j;
 	do {
 		cout << "Please enter first elo\n";
 		cin >> felo;
@@ -26,6 +28,17 @@ int main()
 		cout << e << endl;
 		k = elocalc(felo, e, win);
 		cout << k << endl;
+		if (win == 0)
+		{
+			win++;
+		}
+		else if (win == 1)
+		{
+			win--;
+		}
+		e = expected(oelo, felo);
+		j = otherelo(oelo, e, win);
+		cout << j << endl;
 	} while (felo != 0);
 	
 	
@@ -55,4 +68,12 @@ double elocalc(double x, double z, int y)
 	newelo = 40 * newelo;
 	newelo = x + newelo;
 	return newelo;
+}
+double otherelo(double x, double z, int y)
+{
+	double other;
+	other = y - z;
+	other = 40 * other;
+	other = x + other;
+	return other;
 }
